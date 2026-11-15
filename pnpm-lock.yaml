@@ -23,7 +23,7 @@ importers:
 
   apps/server:
     dependencies:
-      '@mock-api/core':
+      '@mockzin/core':
         specifier: workspace:*
         version: link:../../packages/core
       fastify:

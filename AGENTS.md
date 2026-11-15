@@ -3,7 +3,7 @@
 ## Arquitetura do Monorepo
 
 *   O repositório usa `pnpm` workspaces nativo (`packages/*` e `apps/*`) sem Turborepo ou Nx.
-*   `@mock-api/core` (`packages/core`) deve permanecer livre de dependências de runtime (`dependencies` ausente), sem imports `node:*` e sem dependências de servidor (`fastify`).
+*   `@mockzin/core` (`packages/core`) deve permanecer livre de dependências de runtime (`dependencies` ausente), sem imports `node:*` e sem dependências de servidor (`fastify`).
 *   `packages/core/tsconfig.json` deve manter `"types": []` e `"lib": ["ES2022"]` (sem `"DOM"`). Para APIs globais como `randomUUID`, use `(globalThis as unknown as { crypto: { randomUUID(): string } }).crypto.randomUUID()`.
 
 ## TypeScript e Versão

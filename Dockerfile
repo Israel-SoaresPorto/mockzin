@@ -14,7 +14,7 @@ COPY tsconfig.base.json ./
 COPY packages ./packages
 COPY apps ./apps
 RUN pnpm -r build
-RUN pnpm --filter @mock-api/server --prod deploy --legacy /prod
+RUN pnpm --filter @mockzin/server --prod deploy --legacy /prod
 
 FROM node:22-alpine
 WORKDIR /app

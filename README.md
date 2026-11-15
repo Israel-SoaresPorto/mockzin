@@ -25,9 +25,9 @@ Variáveis de ambiente:
 Docker:
 
 ```bash
-docker build -t mock-api .
+docker build -t mockzin .
 docker run --rm -p 4000:4000 \
-  -e MOCKS_FILE=/data/mocks.json -v "$PWD/mocks.example.json:/data/mocks.json:ro" mock-api
+  -e MOCKS_FILE=/data/mocks.json -v "$PWD/mocks.example.json:/data/mocks.json:ro" mockzin
 ```
 
 ## Modelo de um mock
@@ -118,7 +118,7 @@ packages/core/src/
   matcher.ts      casamento de path/query/headers/body
   template.ts     {{...}} nas respostas
   store.ts        mocks + histórico em memória
-  index.ts        ponto de entrada público (@mock-api/core)
+  index.ts        ponto de entrada público (@mockzin/core)
 packages/core/test/
   matcher.test.ts testes unitários de matcher e template
 apps/server/src/

@@ -5,7 +5,7 @@ import Fastify, {
 } from 'fastify';
 import { adminRoutes } from './admin.js';
 import { mockRoutes } from './mock-routes.js';
-import { MockStore } from '@mock-api/core';
+import { MockStore } from '@mockzin/core';
 
 export interface AppOptions {
   /** Protege /__admin com `Authorization: Bearer <token>`. */

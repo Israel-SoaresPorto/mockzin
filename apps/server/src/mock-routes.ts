@@ -6,7 +6,7 @@ import {
   type TemplateContext,
   type MockStore,
   type IncomingRequest,
-} from '@mock-api/core';
+} from '@mockzin/core';
 
 export interface MockRoutesOptions {
   store: MockStore;

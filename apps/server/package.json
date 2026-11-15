@@ -15,7 +15,7 @@
     "test": "vitest run"
   },
   "dependencies": {
-    "@mock-api/core": "workspace:*",
+    "@mockzin/core": "workspace:*",
     "fastify": "^5.12.8"
   }
 }

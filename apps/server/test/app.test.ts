@@ -5,7 +5,7 @@ import type { FastifyInstance } from 'fastify';
 import { afterEach, beforeEach, describe, expect, it } from 'vitest';
 import { buildApp } from '../src/app.js';
 import { loadMocksFromFile } from '../src/seed.js';
-import type { MockInput } from '@mock-api/core';
+import type { MockInput } from '@mockzin/core';
 
 let app: FastifyInstance;
 
@@ -320,7 +320,7 @@ describe('falhas de transporte (socket real)', () => {
 
 describe('carregamento de mocks de arquivo', () => {
   it('cadastra os mocks do arquivo usando a mesma validação', async () => {
-    const dir = await mkdtemp(join(tmpdir(), 'mock-api-'));
+    const dir = await mkdtemp(join(tmpdir(), 'mockzin-'));
     const good = join(dir, 'mocks.json');
     await writeFile(good, JSON.stringify([{ request: { path: '/seed' }, response: { body: 'semeado' } }]));
     expect(await loadMocksFromFile(app, good)).toBe(1);
