@@ -1,4 +1,4 @@
-# mock-api
+# mockzin
 
 Servidor que permite **mockar outras APIs por meio de uma API**: você cadastra mocks via `/__admin/*`
 e qualquer outra requisição é respondida de acordo com o mock que casar. Feito com Fastify 5 + TypeScript.
@@ -6,10 +6,10 @@ e qualquer outra requisição é respondida de acordo com o mock que casar. Feit
 ## Rodando
 
 ```bash
-npm install
-npm run dev            # http://localhost:4000 (com reload)
+pnpm install
+pnpm dev               # http://localhost:4000 (com reload)
 # ou
-npm run build && npm start
+pnpm build && pnpm start
 ```
 
 Variáveis de ambiente:
@@ -113,17 +113,22 @@ expect(calls).toHaveLength(1);
 ## Estrutura
 
 ```
-src/
+packages/core/src/
   types.ts        modelos (Mock, RequestMatcher, ResponseSpec…)
   matcher.ts      casamento de path/query/headers/body
   template.ts     {{...}} nas respostas
   store.ts        mocks + histórico em memória
+  index.ts        ponto de entrada público (@mock-api/core)
+packages/core/test/
+  matcher.test.ts testes unitários de matcher e template
+apps/server/src/
   admin.ts        plugin Fastify: /__admin/*
   mock-routes.ts  plugin Fastify: catch-all que serve os mocks
   app.ts          buildApp() — monta o Fastify (usado pelos testes também)
   seed.ts         carrega mocks de um arquivo JSON
   server.ts       entrypoint (env, shutdown gracioso)
-test/             vitest (fastify.inject + um teste com socket real para as falhas)
+apps/server/test/
+  app.test.ts     vitest (fastify.inject + um teste com socket real para as falhas)
 ```
 
 ## Decisões e limites

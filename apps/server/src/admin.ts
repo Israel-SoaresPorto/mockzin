@@ -1,7 +1,6 @@
 import { timingSafeEqual } from 'node:crypto';
 import type { FastifyPluginAsync } from 'fastify';
-import type { MockStore } from './store.js';
-import type { MockInput } from './types.js';
+import type { MockStore, MockInput } from '@mock-api/core';
 
 export interface AdminOptions {
   store: MockStore;

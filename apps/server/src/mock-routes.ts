@@ -1,8 +1,12 @@
 import { setTimeout as sleep } from 'node:timers/promises';
 import type { FastifyPluginAsync, FastifyReply } from 'fastify';
-import { renderString, render, type TemplateContext } from './template.js';
-import type { MockStore } from './store.js';
-import type { IncomingRequest } from './types.js';
+import {
+  renderString,
+  render,
+  type TemplateContext,
+  type MockStore,
+  type IncomingRequest,
+} from '@mock-api/core';
 
 export interface MockRoutesOptions {
   store: MockStore;

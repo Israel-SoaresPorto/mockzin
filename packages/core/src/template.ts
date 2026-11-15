@@ -1,5 +1,3 @@
-import { randomUUID } from 'node:crypto';
-
 export interface TemplateContext {
   params: Record<string, string>;
   query: Record<string, string>;
@@ -11,7 +9,7 @@ const TOKEN = /\{\{\s*([\w$.-]+)\s*\}\}/g;
 const WHOLE_TOKEN = /^\{\{\s*([\w$.-]+)\s*\}\}$/;
 
 function lookup(expression: string, context: TemplateContext): unknown {
-  if (expression === '$uuid') return randomUUID();
+  if (expression === '$uuid') return (globalThis as unknown as { crypto: { randomUUID(): string } }).crypto.randomUUID();
   if (expression === '$now') return new Date().toISOString();
 
   let current: unknown = context;

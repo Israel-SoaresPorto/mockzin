@@ -1,4 +1,3 @@
-import { randomUUID } from 'node:crypto';
 import { matchRequest, type PathParams } from './matcher.js';
 import type { IncomingRequest, JournalEntry, Mock, MockInput } from './types.js';
 
@@ -24,7 +23,7 @@ export class MockStore {
 
   add(input: MockInput): Mock {
     const mock: Mock = {
-      id: randomUUID(),
+      id: (globalThis as unknown as { crypto: { randomUUID(): string } }).crypto.randomUUID(),
       createdAt: new Date().toISOString(),
       priority: input.priority ?? 0,
       calls: 0,
